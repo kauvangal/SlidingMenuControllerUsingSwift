@@ -1,4 +1,4 @@
-SlidingMenuControllerUsingSwift
+Sliding MenuController Using Swift Language
 ===============================
 
 This is a sample app to demonstrate sliding menu controller using Apple's new language SWIFT
