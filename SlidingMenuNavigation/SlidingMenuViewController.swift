@@ -10,30 +10,21 @@ import UIKit
 
 class SlidingMenuViewController: UIViewController {
     
-    private var _leftViewController:UIViewController?
-    private var _mainViewController:UIViewController?
-    private var _gap:CGFloat = 50.0
+    var leftViewController:UIViewController?
+    var mainViewController:UIViewController?
+    var offSet:CGFloat = 50.0
     private var _scrollView:UIScrollView?
     private var _firstTime:Bool = true
     
-    
-    required init(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-        
+  
 
-    }
-    
-    init(leftViewController:UIViewController, mainViewController:UIViewController, gap:CGFloat) {
-        super.init()
-        _leftViewController = leftViewController
-        _mainViewController = mainViewController
-        _gap = gap
+    override func viewDidLoad() {
         setupScrollView()
         setupViewController()
+        self.view.backgroundColor = UIColor.redColor()
+        self._firstTime=true
     }
-
-
+        
     func setupScrollView(){
         _scrollView = UIScrollView(frame: CGRectZero)
         _scrollView?.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -52,19 +43,19 @@ class SlidingMenuViewController: UIViewController {
     }
     
     func setupViewController(){
-        self.addViewController(self._leftViewController!);
-        self.addViewController(self._mainViewController!);
-        let viewsDictionary = ["leftView":self._leftViewController?.view,"mainView":self._mainViewController?.view,"outerView":self.view];
+        self.addViewController(self.leftViewController!);
+        self.addViewController(self.mainViewController!);
+        let viewsDictionary = ["leftView":self.leftViewController?.view,"mainView":self.mainViewController?.view,"outerView":self.view];
         let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("|[leftView][mainView(==outerView)]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
          self.view.addConstraints(horizontalConstraints)
         
-        let leftViewConstraint = NSLayoutConstraint(item:_leftViewController?.view!,
+        let leftViewConstraint = NSLayoutConstraint(item:leftViewController?.view!,
             attribute: NSLayoutAttribute.Width,
             relatedBy: NSLayoutRelation.Equal,
             toItem: self.view!,
             attribute: NSLayoutAttribute.Width,
             multiplier: 1.0,
-            constant:-self._gap)
+            constant:-self.offSet)
         
         self.view.addConstraint(leftViewConstraint);
         
@@ -73,8 +64,6 @@ class SlidingMenuViewController: UIViewController {
         
         let mainViewVerticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[mainView(==outerView)]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
         self.view.addConstraints(mainViewVerticalConstraints)
-        
-       
     }
     
     func addViewController(viewController:UIViewController){
@@ -84,8 +73,35 @@ class SlidingMenuViewController: UIViewController {
         viewController.didMoveToParentViewController(self);
     }
     
+    func isMenuOpen() -> Bool{
+        let contentOffSet = self._scrollView?.contentOffset
+        return (contentOffSet?.x == 0)
+    }
     
-   
+    func closeMenu(animated:Bool){
+        var contentOffSet = self._scrollView?.contentOffset
+        contentOffSet?.x = CGRectGetWidth(self.view.bounds) - self.offSet
+        self._scrollView?.setContentOffset(contentOffSet!, animated: true)
+    }
     
+    func openMenu(animated:Bool) {
+        self._scrollView?.setContentOffset(CGPointZero, animated: true)
+    }
+    
+    func toggleMenu() {
+        if self.isMenuOpen() {
+            self.closeMenu(true)
+        }else {
+            self.openMenu(true)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self._firstTime {
+            self._firstTime = false
+            self.closeMenu(false)
+        }
+    }
 }
 
