@@ -14,7 +14,7 @@ Project Files
 6. MenuViewController - menu item
 
 
-Adding a new view controller
+<h4>Adding a new view controller</h4>
 
 1. Story Board
   - Set Identifier for the view controller, so you can instantitateViewControllerWithIdentifier
