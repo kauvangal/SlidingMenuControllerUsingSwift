@@ -28,13 +28,14 @@ www.raywenderlich.com
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,MenuViewControllerDelegate,CountriesViewControllerDelegate,ContinentsViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,MenuViewControllerDelegate,CountriesViewControllerDelegate,ContinentsViewControllerDelegate,OceansViewControllerDelegate {
                             
     var window: UIWindow?
     let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var sideBarNavigationController:SlidingMenuViewController?
     var countriesViewController:CountriesViewController?
     var continentsViewController:ContinentsViewController?
+    var oceansViewController:OceansViewController?
     var menuViewController:MenuViewController?
     var menuNav:UINavigationController?
     var pageNavigationController:UINavigationController?
@@ -50,6 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MenuViewControllerDelegate
         
         self.continentsViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("ContinentsViewController") as ContinentsViewController)
         self.continentsViewController?.delegate = self
+        
+        self.oceansViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("OceansViewController") as OceansViewController)
+        self.oceansViewController?.delegate = self
         
         self.menuViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("MenuViewController") as MenuViewController)
         self.menuViewController?.delegate = self
@@ -96,6 +100,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MenuViewControllerDelegate
         self.sideBarNavigationController?.toggleMenu()
     }
     
+    func oceansViewControllerDidTapMenuButton(viewController: OceansViewController) {
+        self.sideBarNavigationController?.toggleMenu()
+    }
+    
     func menuViewControllerDidTapContinents(controller: MenuViewController) {
         self.sideBarNavigationController?.toggleMenu()
         self.pageNavigationController?.setViewControllers([self.continentsViewController!], animated: true)
@@ -105,5 +113,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MenuViewControllerDelegate
         self.sideBarNavigationController?.toggleMenu()
         self.pageNavigationController?.setViewControllers([self.countriesViewController!], animated: true)
     }
+    
+    func menuViewControllerDidTapOceans(controller:MenuViewController){
+        self.sideBarNavigationController?.toggleMenu()
+        self.pageNavigationController?.setViewControllers([self.oceansViewController!], animated: true)
+    }
+    
 }
 

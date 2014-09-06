@@ -31,6 +31,7 @@ import UIKit
 
   func menuViewControllerDidTapContinents(controller:MenuViewController)
   func menuViewControllerDidTapCountries(controller:MenuViewController)
+  func menuViewControllerDidTapOceans(controller:MenuViewController)
 
 }
 
@@ -40,7 +41,7 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
     @IBOutlet var tableView:UITableView!
     var delegate:MenuViewControllerDelegate?
     
-    let menuItems:[String] = ["Continents", "Countries"];
+    let menuItems:[String] = ["Continents", "Countries", "Oceans"];
 
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell:UITableViewCell! = self.tableView .dequeueReusableCellWithIdentifier("SettingsCell")
@@ -55,14 +56,17 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         
-        if indexPath.row == 0 {
-           self.delegate?.menuViewControllerDidTapContinents(self)
-        }
-        
-        if (indexPath.row == 1) {
+        switch indexPath.row{
+        case 0:
+             self.delegate?.menuViewControllerDidTapContinents(self)
+        case 1:
             self.delegate?.menuViewControllerDidTapCountries(self)
+        case 2:
+            self.delegate?.menuViewControllerDidTapOceans(self)
+        default:
+            self.delegate?.menuViewControllerDidTapContinents(self) //We will go with the first tab
+
         }
-        
         
     }
 

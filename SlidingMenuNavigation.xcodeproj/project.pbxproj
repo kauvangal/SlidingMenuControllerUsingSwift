@@ -15,6 +15,7 @@
 		B1BEA8FF19B4ECAB008716A7 /* ContinentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEA8FE19B4ECAB008716A7 /* ContinentsViewController.swift */; };
 		B1BEA90119B4F86C008716A7 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEA90019B4F86C008716A7 /* CountriesViewController.swift */; };
 		B1BEA90319B4FB4A008716A7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEA90219B4FB4A008716A7 /* MenuViewController.swift */; };
+		B1E9A9FB19BB48BF00009B7F /* OceansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A9FA19BB48BF00009B7F /* OceansViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		B1BEA8FE19B4ECAB008716A7 /* ContinentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinentsViewController.swift; sourceTree = "<group>"; };
 		B1BEA90019B4F86C008716A7 /* CountriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		B1BEA90219B4FB4A008716A7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B1E9A9FA19BB48BF00009B7F /* OceansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceansViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				B1BEA8FE19B4ECAB008716A7 /* ContinentsViewController.swift */,
 				B1BEA90019B4F86C008716A7 /* CountriesViewController.swift */,
 				B1BEA90219B4FB4A008716A7 /* MenuViewController.swift */,
+				B1E9A9FA19BB48BF00009B7F /* OceansViewController.swift */,
 			);
 			path = SlidingMenuNavigation;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				B1BEA8E219B3D8C7008716A7 /* AppDelegate.swift in Sources */,
 				B1BEA8FF19B4ECAB008716A7 /* ContinentsViewController.swift in Sources */,
 				B1BEA90119B4F86C008716A7 /* CountriesViewController.swift in Sources */,
+				B1E9A9FB19BB48BF00009B7F /* OceansViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
