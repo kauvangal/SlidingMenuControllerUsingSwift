@@ -42,6 +42,7 @@ class SlidingMenuViewController: UIViewController {
         setupViewController()
         self.view.backgroundColor = UIColor.redColor()
         self._firstTime=true
+
     }
         
     func setupScrollView(){

@@ -32,6 +32,7 @@ import UIKit
   func menuViewControllerDidTapContinents(controller:MenuViewController)
   func menuViewControllerDidTapCountries(controller:MenuViewController)
   func menuViewControllerDidTapOceans(controller:MenuViewController)
+  func menuViewControllerDidClose();
 
 }
 
@@ -68,6 +69,10 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
         }
         
+    }
+    
+    @IBAction func closeButton(){
+        self.delegate?.menuViewControllerDidClose()
     }
 
 }
