@@ -12,3 +12,18 @@ Project Files
 4. CountriesViewController.swift
 5. ContinentViewController.swift - sample file
 6. MenuViewController - menu item
+
+
+Adding a new view controller
+
+1. Story Board
+  - Set Identifier for the view controller, so you can instantitateViewControllerWithIdentifier
+  - Embed in Navigation controller (optional step)
+  - Add a Menu Item (Bar Button Item)
+  - Connect IBOutlets, IBAction and set tableview delegate to the view controller
+2. Code
+  - Add a delegate in the new controller
+  - Add a delegate method in the menu view controller
+  - Add it in the App delegate
+
+
