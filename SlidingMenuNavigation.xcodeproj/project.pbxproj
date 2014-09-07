@@ -17,6 +17,7 @@
 		B1BEA90319B4FB4A008716A7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEA90219B4FB4A008716A7 /* MenuViewController.swift */; };
 		B1E9A9FB19BB48BF00009B7F /* OceansViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A9FA19BB48BF00009B7F /* OceansViewController.swift */; };
 		B1E9A9FD19BB770200009B7F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E9A9FC19BB770200009B7F /* HomeViewController.swift */; };
+		B1E9AA2A19BBE28E00009B7F /* ScreenShots.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1E9AA2919BBE28E00009B7F /* ScreenShots.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B1BEA90219B4FB4A008716A7 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B1E9A9FA19BB48BF00009B7F /* OceansViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceansViewController.swift; sourceTree = "<group>"; };
 		B1E9A9FC19BB770200009B7F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1E9AA2919BBE28E00009B7F /* ScreenShots.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ScreenShots.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		B1BEA8DF19B3D8C7008716A7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1E9AA2919BBE28E00009B7F /* ScreenShots.gif */,
 				B1BEA8E019B3D8C7008716A7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E9AA2A19BBE28E00009B7F /* ScreenShots.gif in Resources */,
 				B1BEA8E719B3D8C8008716A7 /* Main.storyboard in Resources */,
 				B1BEA8E919B3D8C8008716A7 /* Images.xcassets in Resources */,
 			);
