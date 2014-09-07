@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iOr-EM-0Gc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sliding Menu View Controller-->
@@ -105,9 +106,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-Tc-KdU">
-                                <rect key="frame" x="34" y="100" width="203" height="30"/>
-                                <state key="normal" title="Sliding Navigation Example">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-Tc-KdU">
+                                <rect key="frame" x="0.0" y="285" width="600" height="30"/>
+                                <state key="normal" title="Click here to open Sliding Menu Controller">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -116,6 +117,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aYU-Tc-KdU" firstAttribute="leading" secondItem="kef-Ks-9P4" secondAttribute="leadingMargin" constant="-16" id="IKD-Ft-oIv"/>
+                            <constraint firstAttribute="centerY" secondItem="aYU-Tc-KdU" secondAttribute="centerY" id="WlI-L0-tuI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aYU-Tc-KdU" secondAttribute="trailing" constant="-16" id="g2o-I3-gtt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dgj-fx-yff"/>
                 </viewController>
