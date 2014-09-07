@@ -28,6 +28,5 @@ Project Files
   - Add a delegate method in the menu view controller
   - Add it in the HomeViewController
 
-<h4>Known Issues</h4>
-  - Transition from Home to Slide Bar is not smooth
+
 
