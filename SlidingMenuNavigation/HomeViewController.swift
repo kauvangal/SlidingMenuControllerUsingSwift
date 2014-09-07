@@ -21,7 +21,6 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
     
     func continentsViewControllerDidTapMenuButton(viewController: ContinentsViewController) {
@@ -54,7 +53,8 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
     func menuViewControllerDidClose(){
         self.sideBarNavigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func openNavigation(sender: AnyObject){
+    
+    func openSlidingNavigation(){
         self.sideBarNavigationController = (mainStoryboard.instantiateViewControllerWithIdentifier("SlidingMenuViewController") as SlidingMenuViewController)
         
         self.countriesViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("CountriesViewController") as CountriesViewController)
@@ -78,8 +78,11 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
         
         self.modalPresentationStyle = UIModalPresentationStyle.FullScreen
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.presentViewController(self.sideBarNavigationController, animated: true, completion: nil)
-        
+        self.presentViewController(self.sideBarNavigationController, animated: false, completion: nil)
+    }
+    @IBAction func openNavigation(sender: AnyObject){
+     
+        openSlidingNavigation()
     }
 
 
