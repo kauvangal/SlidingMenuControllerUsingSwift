@@ -69,8 +69,8 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
         self.menuViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("MenuViewController") as MenuViewController)
         self.menuViewController?.delegate = self
         
-        self.menuNav = UINavigationController(rootViewController: self.menuViewController)
-        self.pageNavigationController = UINavigationController(rootViewController: self.continentsViewController)
+        self.menuNav = UINavigationController(rootViewController: self.menuViewController!)
+        self.pageNavigationController = UINavigationController(rootViewController: self.continentsViewController!)
         
         self.sideBarNavigationController?.leftViewController = self.menuNav
         self.sideBarNavigationController?.mainViewController = self.pageNavigationController
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
         
         self.modalPresentationStyle = UIModalPresentationStyle.FullScreen
         self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.presentViewController(self.sideBarNavigationController, animated: false, completion: nil)
+        self.presentViewController(self.sideBarNavigationController!, animated: false, completion: nil)
     }
     @IBAction func openNavigation(sender: AnyObject){
      

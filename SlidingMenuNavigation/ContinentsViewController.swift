@@ -41,16 +41,19 @@ class ContinentsViewController: UIViewController,UITableViewDataSource,UITableVi
         super.viewDidLoad()
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell! = self.tableView .dequeueReusableCellWithIdentifier("ContinentCell")
          as UITableViewCell
-        cell.textLabel.text = self.continents[indexPath.row]
+        cell.textLabel?.text = self.continents[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.continents.count
     }
+    
+   
     
     @IBAction func openMenu(sender: AnyObject){
        self.delegate?.continentsViewControllerDidTapMenuButton(self)

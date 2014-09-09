@@ -65,14 +65,16 @@ class SlidingMenuViewController: UIViewController {
     func setupViewController(){
         self.addViewController(self.leftViewController!);
         self.addViewController(self.mainViewController!);
-        let viewsDictionary = ["leftView":self.leftViewController?.view,"mainView":self.mainViewController?.view,"outerView":self.view];
+        let viewsDictionary:[String:AnyObject!] = ["leftView":self.leftViewController?.view,"mainView":self.mainViewController?.view,"outerView":self.view];
         let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("|[leftView][mainView(==outerView)]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
+        
+
          self.view.addConstraints(horizontalConstraints)
         
-        let leftViewConstraint = NSLayoutConstraint(item:leftViewController?.view!,
+        let leftViewConstraint = NSLayoutConstraint(item:self.leftViewController!.view,
             attribute: NSLayoutAttribute.Width,
             relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view!,
+            toItem: self.view,
             attribute: NSLayoutAttribute.Width,
             multiplier: 1.0,
             constant:-self.offSet)

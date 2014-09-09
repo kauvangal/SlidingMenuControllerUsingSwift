@@ -23,14 +23,14 @@ class OceansViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell! = self.tableView .dequeueReusableCellWithIdentifier("OceanCell")
             as UITableViewCell
-        cell.textLabel.text = self.oceans[indexPath.row]
+        cell.textLabel?.text = self.oceans[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.oceans.count
     }
     

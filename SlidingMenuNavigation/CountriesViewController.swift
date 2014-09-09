@@ -31,7 +31,7 @@ import UIKit
     func countriesViewControllerDidTapMenuButton(viewController:CountriesViewController)
 }
 
-class CountriesViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class CountriesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView:UITableView!
     private let countries:[String] = ["USA","India","China","Canada","Brazil","Australia","Mexico"]
@@ -41,14 +41,14 @@ class CountriesViewController: UIViewController,UITableViewDataSource,UITableVie
         super.viewDidLoad()
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell! = self.tableView .dequeueReusableCellWithIdentifier("CountryCell")
             as UITableViewCell
-        cell.textLabel.text = self.countries[indexPath.row]
+        cell.textLabel?.text = self.countries[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.countries.count
     }
     

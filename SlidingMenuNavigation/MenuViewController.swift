@@ -44,18 +44,18 @@ class MenuViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     let menuItems:[String] = ["Continents", "Countries", "Oceans"];
 
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell! = self.tableView .dequeueReusableCellWithIdentifier("SettingsCell")
             as UITableViewCell
-        cell.textLabel.text = self.menuItems[indexPath.row]
+        cell.textLabel?.text = self.menuItems[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuItems.count
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch indexPath.row{
         case 0:
