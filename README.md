@@ -29,4 +29,4 @@ Project Files
   - Add it in the HomeViewController
 
 
-<h4> Known Issues: Build errors in Latest XCode Beta 7 released on Sep 2 2014.Fixing it.
+<h4> Known Issues: Build errors in Latest XCode Beta 7 released on Sep 2 2014.Fixing it - FIXED!.
