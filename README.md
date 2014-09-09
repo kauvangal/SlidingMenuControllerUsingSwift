@@ -1,5 +1,3 @@
-<h4> Known Issues: Build errors in Latest XCode Beta 6 released on Sep 2 2014.Fixing it.
-
 Sliding MenuController Using Swift Language
 ===============================
 
@@ -31,4 +29,4 @@ Project Files
   - Add it in the HomeViewController
 
 
-
+<h4> Known Issues: Build errors in Latest XCode Beta 6 released on Sep 2 2014.Fixing it.
