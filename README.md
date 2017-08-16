@@ -1,8 +1,9 @@
 Sliding MenuController Using Swift Language
 ===============================
 
-This is a sample app to demonstrate sliding menu controller using Apple's new language SWIFT
-Based upon inspiration from RayWenderlich articles
+A Sample app to demonstrate sliding menu controller built on Swift 1.0
+
+NOTE: *Update to Swift 4 / XCode 9 is coming soon.
 
 ![My image](https://github.com/kauvangal/SlidingMenuControllerUsingSwift/blob/master/SlidingMenuNavigation/ScreenShots.gif)
 
