@@ -1,29 +1,26 @@
 /*
-
-Copyright (c) 2014 Vijay Kauvangal <vappflakes@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished
-to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-This code is written based upon inspiration from RayWenderlich Articles
-www.raywenderlich.com
-
-*/
+ 
+ Copyright (c) 2014 Vijay Kauvangal <vappflakes@gmail.com>
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is furnished
+ to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ 
+ */
 
 import UIKit
 
@@ -35,64 +32,58 @@ class SlidingMenuViewController: UIViewController {
     private var _scrollView:UIScrollView?
     private var _firstTime:Bool = true
     
-  
-
     override func viewDidLoad() {
         setupScrollView()
         setupViewController()
-        self.view.backgroundColor = UIColor.redColor()
+        self.view.backgroundColor = UIColor.red
         self._firstTime=true
-
     }
-        
+    
     func setupScrollView(){
-        _scrollView = UIScrollView(frame: CGRectZero)
-        _scrollView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        _scrollView?.pagingEnabled = true
+        _scrollView = UIScrollView(frame: CGRect.zero)
+        _scrollView?.translatesAutoresizingMaskIntoConstraints = false
+        _scrollView?.isPagingEnabled = true
         self.view.addSubview(_scrollView!)
-
+        
         let viewsDictionary = ["scrollView":self._scrollView!]
-        let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("H:|[scrollView]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
-
-  
-        self.view.addConstraints(horizontalConstraints)
-        
-        let verticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[scrollView]|", options: NSLayoutFormatOptions(0), metrics: nil,views:viewsDictionary)
-        self.view.addConstraints(verticalConstraints)
-        
+        //Set Horizontal Constraints
+        let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraints(withVisualFormat: "H:|[scrollView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views:viewsDictionary)
+        self.view.addConstraints(horizontalConstraints as! [NSLayoutConstraint])
+        //Set Vertical Constraints
+        let verticalConstraints:[AnyObject]! = NSLayoutConstraint.constraints(withVisualFormat: "V:|[scrollView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil,views:viewsDictionary)
+        self.view.addConstraints(verticalConstraints as! [NSLayoutConstraint])
     }
     
     func setupViewController(){
-        self.addViewController(self.leftViewController!);
-        self.addViewController(self.mainViewController!);
-        let viewsDictionary:[String:AnyObject!] = ["leftView":self.leftViewController?.view,"mainView":self.mainViewController?.view,"outerView":self.view];
-        let horizontalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("|[leftView][mainView(==outerView)]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
-        
-
-         self.view.addConstraints(horizontalConstraints)
+        self.addViewController(viewController: self.leftViewController!);
+        self.addViewController(viewController: self.mainViewController!);
+        let viewsDictionary = ["leftView":self.leftViewController?.view,"mainView":self.mainViewController?.view,"outerView":self.view];
+        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|[leftView][mainView(==outerView)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views:viewsDictionary as Any as! [String : Any])
+        self.view.addConstraints(horizontalConstraints)
         
         let leftViewConstraint = NSLayoutConstraint(item:self.leftViewController!.view,
-            attribute: NSLayoutAttribute.Width,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view,
-            attribute: NSLayoutAttribute.Width,
-            multiplier: 1.0,
-            constant:-self.offSet)
+                                                    attribute: NSLayoutAttribute.width,
+                                                    relatedBy: NSLayoutRelation.equal,
+                                                    toItem: self.view,
+                                                    attribute: NSLayoutAttribute.width,
+                                                    multiplier: 1.0,
+                                                    constant:-self.offSet)
         
         self.view.addConstraint(leftViewConstraint);
         
-        let leftViewVerticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[leftView(==outerView)]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
+        let leftViewVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[leftView(==outerView)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views:viewsDictionary as Any as! [String : Any])
         self.view.addConstraints(leftViewVerticalConstraints)
         
-        let mainViewVerticalConstraints:[AnyObject]! = NSLayoutConstraint.constraintsWithVisualFormat("V:|[mainView(==outerView)]|", options: NSLayoutFormatOptions(0), metrics: nil, views:viewsDictionary)
+        let mainViewVerticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[mainView(==outerView)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views:viewsDictionary as Any as! [String : Any])
         self.view.addConstraints(mainViewVerticalConstraints)
     }
     
     func addViewController(viewController:UIViewController){
-        viewController.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
         _scrollView?.addSubview(viewController.view)
         self.addChildViewController(viewController);
-        viewController.didMoveToParentViewController(self);
+        viewController.didMove(toParentViewController: self);
     }
     
     func isMenuOpen() -> Bool{
@@ -102,28 +93,26 @@ class SlidingMenuViewController: UIViewController {
     
     func closeMenu(animated:Bool){
         var contentOffSet = self._scrollView?.contentOffset
-        contentOffSet?.x = CGRectGetWidth(self.view.bounds) - self.offSet
+        let width = self.view.bounds.width
+        contentOffSet?.x = width - self.offSet
         self._scrollView?.setContentOffset(contentOffSet!, animated: true)
     }
     
     func openMenu(animated:Bool) {
-        self._scrollView?.setContentOffset(CGPointZero, animated: true)
+        self._scrollView?.setContentOffset(CGPoint.zero, animated: true)
     }
     
     func toggleMenu() {
-        if self.isMenuOpen() {
-            self.closeMenu(true)
-        }else {
-            self.openMenu(true)
-        }
+        self.isMenuOpen() ? self.closeMenu(animated: true) : self.openMenu(animated: true)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if self._firstTime {
             self._firstTime = false
-            self.closeMenu(false)
+            self.closeMenu(animated:false)
         }
     }
 }
+
 

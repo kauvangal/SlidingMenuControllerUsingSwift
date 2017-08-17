@@ -1,295 +1,299 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A329r" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iOr-EM-0Gc">
-    <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
-    </dependencies>
-    <scenes>
-        <!--Sliding Menu View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="SlidingMenuViewController" id="BYZ-38-t0r" customClass="SlidingMenuViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Menu Items-->
-        <scene sceneID="8HQ-ds-5ME">
-            <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="55g-ff-EtP" customClass="MenuViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ChM-NB-BTk"/>
-                        <viewControllerLayoutGuide type="bottom" id="xUM-jl-kU3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dam-yq-Urf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RT9-1s-b8e">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsCell" textLabel="33b-dU-4Mh" style="IBUITableViewCellStyleDefault" id="1Sb-HF-xPh">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Sb-HF-xPh" id="8T4-5c-sqM">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="33b-dU-4Mh">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="55g-ff-EtP" id="LN5-bN-86e"/>
-                                    <outlet property="delegate" destination="55g-ff-EtP" id="QHJ-Kg-tSY"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Menu Items" id="VVQ-Hp-DSv">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="gS8-xx-mJo">
-                            <connections>
-                                <action selector="closeButton" destination="55g-ff-EtP" id="blS-T2-dff"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="RT9-1s-b8e" id="XEC-ej-OCt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DdN-wG-8s3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1828" y="-331"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="930-ys-LRf">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e0B-uz-BOz" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NXr-02-ZBG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="55g-ff-EtP" kind="relationship" relationship="rootViewController" id="9zD-DQ-e5g"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ieo-kc-Ddi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1016" y="-331"/>
-        </scene>
-        <!--Home View Controller-->
-        <scene sceneID="xh5-4m-m1M">
-            <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="iOr-EM-0Gc" customClass="HomeViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qVv-qN-Hi6"/>
-                        <viewControllerLayoutGuide type="bottom" id="bdE-Cx-p5E"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kef-Ks-9P4">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-Tc-KdU">
-                                <rect key="frame" x="0.0" y="285" width="600" height="30"/>
-                                <state key="normal" title="Click here to open Sliding Menu Controller">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openNavigation:" destination="iOr-EM-0Gc" eventType="touchUpInside" id="vdu-iL-1er"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aYU-Tc-KdU" firstAttribute="leading" secondItem="kef-Ks-9P4" secondAttribute="leadingMargin" constant="-16" id="IKD-Ft-oIv"/>
-                            <constraint firstAttribute="centerY" secondItem="aYU-Tc-KdU" secondAttribute="centerY" id="WlI-L0-tuI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aYU-Tc-KdU" secondAttribute="trailing" constant="-16" id="g2o-I3-gtt"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Dgj-fx-yff"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IfE-iw-Fn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2320" y="975"/>
-        </scene>
-        <!--Continents-->
-        <scene sceneID="yqv-H9-WpE">
-            <objects>
-                <viewController storyboardIdentifier="ContinentsViewController" id="4DI-HX-IFs" customClass="ContinentsViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tv2-hJ-BSY"/>
-                        <viewControllerLayoutGuide type="bottom" id="yIK-CI-AJz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hVT-3P-O7c">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xIt-32-1vf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContinentCell" textLabel="shR-f0-HEv" style="IBUITableViewCellStyleDefault" id="gsu-gg-fOe">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsu-gg-fOe" id="T5v-EK-Jbe">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="shR-f0-HEv">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="4DI-HX-IFs" id="aRU-h9-k9c"/>
-                                    <outlet property="delegate" destination="4DI-HX-IFs" id="1FZ-hu-mFJ"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Continents" id="BIy-cH-gES">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ozr-Jy-NKf">
-                            <connections>
-                                <action selector="openMenu:" destination="4DI-HX-IFs" id="dgc-Ig-zkh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="xIt-32-1vf" id="oU3-qB-hFh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3hf-ie-hUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3144" y="1108"/>
-        </scene>
-        <!--Countries-->
-        <scene sceneID="srR-jr-TTL">
-            <objects>
-                <viewController storyboardIdentifier="CountriesViewController" id="tDx-yX-WbI" customClass="CountriesViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5qV-Tn-3sH"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mmf-b6-DN0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kKS-Ot-0Tc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Odj-G0-XI2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CountryCell" textLabel="hg6-E8-E3X" style="IBUITableViewCellStyleDefault" id="uHY-nf-44F">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHY-nf-44F" id="5Hh-Qi-xcr">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hg6-E8-E3X">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="tDx-yX-WbI" id="1LR-wM-Dtd"/>
-                                    <outlet property="delegate" destination="tDx-yX-WbI" id="Wzk-6O-ZAv"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Countries" id="CXE-A8-vDa">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="GJr-5R-L1g">
-                            <connections>
-                                <action selector="openMenu:" destination="tDx-yX-WbI" id="Yxt-vV-GJ2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="Odj-G0-XI2" id="xtN-Pl-LSF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qX5-jC-zFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2377" y="1786"/>
-        </scene>
-        <!--Oceans View Controller-->
-        <scene sceneID="fGo-5C-xpC">
-            <objects>
-                <viewController storyboardIdentifier="OceansViewController" id="DDp-Yz-nfr" customClass="OceansViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nfI-G5-TAi"/>
-                        <viewControllerLayoutGuide type="bottom" id="1CR-Lo-E2b"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0gz-KC-7ef">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jmb-ox-mRN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OceanCell" textLabel="Bkc-Np-g2u" style="IBUITableViewCellStyleDefault" id="QbL-PQ-Obg">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QbL-PQ-Obg" id="hp2-AT-mJt">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bkc-Np-g2u">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="DDp-Yz-nfr" id="kT8-2d-k9L"/>
-                                    <outlet property="delegate" destination="DDp-Yz-nfr" id="R9x-11-jcO"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="7sr-dk-cPJ">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="95d-NY-hIC">
-                            <connections>
-                                <action selector="openMenu:" destination="DDp-Yz-nfr" id="9MP-LU-M1V"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="jmb-ox-mRN" id="I8G-9T-Sn2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ysL-Ls-aNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3215" y="2431"/>
-        </scene>
-    </scenes>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iOr-EM-0Gc">
+<device id="retina4_7" orientation="portrait">
+<adaptation id="fullscreen"/>
+</device>
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+<capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+<capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+</dependencies>
+<scenes>
+<!--Sliding Menu View Controller-->
+<scene sceneID="tne-QT-ifu">
+<objects>
+<viewController storyboardIdentifier="SlidingMenuViewController" id="BYZ-38-t0r" customClass="SlidingMenuViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+<viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</view>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+</objects>
+</scene>
+<!--Menu Items-->
+<scene sceneID="8HQ-ds-5ME">
+<objects>
+<viewController storyboardIdentifier="MenuViewController" id="55g-ff-EtP" customClass="MenuViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="ChM-NB-BTk"/>
+<viewControllerLayoutGuide type="bottom" id="xUM-jl-kU3"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="dam-yq-Urf">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RT9-1s-b8e">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<prototypes>
+<tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsCell" textLabel="33b-dU-4Mh" style="IBUITableViewCellStyleDefault" id="1Sb-HF-xPh">
+<rect key="frame" x="0.0" y="22" width="600" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+<tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Sb-HF-xPh" id="8T4-5c-sqM">
+<rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+<autoresizingMask key="autoresizingMask"/>
+<subviews>
+<label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="33b-dU-4Mh">
+<rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" type="system" pointSize="16"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+</tableViewCellContentView>
+</tableViewCell>
+</prototypes>
+<connections>
+<outlet property="dataSource" destination="55g-ff-EtP" id="LN5-bN-86e"/>
+<outlet property="delegate" destination="55g-ff-EtP" id="QHJ-Kg-tSY"/>
+</connections>
+</tableView>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</view>
+<navigationItem key="navigationItem" title="Menu Items" id="VVQ-Hp-DSv">
+<barButtonItem key="leftBarButtonItem" title="Close" id="gS8-xx-mJo">
+<connections>
+<action selector="closeButton" destination="55g-ff-EtP" id="blS-T2-dff"/>
+</connections>
+</barButtonItem>
+</navigationItem>
+<connections>
+<outlet property="tableView" destination="RT9-1s-b8e" id="XEC-ej-OCt"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="DdN-wG-8s3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="1828" y="-331"/>
+</scene>
+<!--Home View Controller-->
+<scene sceneID="xh5-4m-m1M">
+<objects>
+<viewController storyboardIdentifier="HomeViewController" id="iOr-EM-0Gc" customClass="HomeViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="qVv-qN-Hi6"/>
+<viewControllerLayoutGuide type="bottom" id="bdE-Cx-p5E"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="kef-Ks-9P4">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-Tc-KdU">
+<rect key="frame" x="0.0" y="318.5" width="375" height="30"/>
+<state key="normal" title="Click here to open Sliding Menu Controller">
+<color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</state>
+<connections>
+<action selector="openNavigationWithSender:" destination="iOr-EM-0Gc" eventType="touchUpInside" id="Nwq-2B-LOp"/>
+</connections>
+</button>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<constraints>
+<constraint firstItem="aYU-Tc-KdU" firstAttribute="leading" secondItem="kef-Ks-9P4" secondAttribute="leadingMargin" constant="-16" id="IKD-Ft-oIv"/>
+<constraint firstAttribute="centerY" secondItem="aYU-Tc-KdU" secondAttribute="centerY" id="WlI-L0-tuI"/>
+<constraint firstAttribute="trailingMargin" secondItem="aYU-Tc-KdU" secondAttribute="trailing" constant="-16" id="g2o-I3-gtt"/>
+</constraints>
+</view>
+<navigationItem key="navigationItem" id="Dgj-fx-yff"/>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="IfE-iw-Fn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="2320" y="975"/>
+</scene>
+<!--Continents-->
+<scene sceneID="yqv-H9-WpE">
+<objects>
+<viewController storyboardIdentifier="ContinentsViewController" id="4DI-HX-IFs" customClass="ContinentsViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="tv2-hJ-BSY"/>
+<viewControllerLayoutGuide type="bottom" id="yIK-CI-AJz"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="hVT-3P-O7c">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xIt-32-1vf">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<prototypes>
+<tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContinentCell" textLabel="shR-f0-HEv" style="IBUITableViewCellStyleDefault" id="gsu-gg-fOe">
+<rect key="frame" x="0.0" y="22" width="600" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+<tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsu-gg-fOe" id="T5v-EK-Jbe">
+<rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+<autoresizingMask key="autoresizingMask"/>
+<subviews>
+<label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="shR-f0-HEv">
+<rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" type="system" pointSize="16"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+</tableViewCellContentView>
+</tableViewCell>
+</prototypes>
+<connections>
+<outlet property="dataSource" destination="4DI-HX-IFs" id="aRU-h9-k9c"/>
+<outlet property="delegate" destination="4DI-HX-IFs" id="1FZ-hu-mFJ"/>
+</connections>
+</tableView>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</view>
+<navigationItem key="navigationItem" title="Continents" id="BIy-cH-gES">
+<barButtonItem key="leftBarButtonItem" title="Menu" id="ozr-Jy-NKf">
+<connections>
+<action selector="openMenuWithSender:" destination="4DI-HX-IFs" id="OVw-BE-G49"/>
+</connections>
+</barButtonItem>
+</navigationItem>
+<connections>
+<outlet property="tableView" destination="xIt-32-1vf" id="oU3-qB-hFh"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="3hf-ie-hUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="3144" y="1108"/>
+</scene>
+<!--Countries-->
+<scene sceneID="srR-jr-TTL">
+<objects>
+<viewController storyboardIdentifier="CountriesViewController" id="tDx-yX-WbI" customClass="CountriesViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="5qV-Tn-3sH"/>
+<viewControllerLayoutGuide type="bottom" id="Mmf-b6-DN0"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="kKS-Ot-0Tc">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Odj-G0-XI2">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<prototypes>
+<tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CountryCell" textLabel="hg6-E8-E3X" style="IBUITableViewCellStyleDefault" id="uHY-nf-44F">
+<rect key="frame" x="0.0" y="22" width="600" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+<tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHY-nf-44F" id="5Hh-Qi-xcr">
+<rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+<autoresizingMask key="autoresizingMask"/>
+<subviews>
+<label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hg6-E8-E3X">
+<rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" type="system" pointSize="16"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+</tableViewCellContentView>
+</tableViewCell>
+</prototypes>
+<connections>
+<outlet property="dataSource" destination="tDx-yX-WbI" id="1LR-wM-Dtd"/>
+<outlet property="delegate" destination="tDx-yX-WbI" id="Wzk-6O-ZAv"/>
+</connections>
+</tableView>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</view>
+<navigationItem key="navigationItem" title="Countries" id="CXE-A8-vDa">
+<barButtonItem key="leftBarButtonItem" title="Menu" id="GJr-5R-L1g">
+<connections>
+<action selector="openMenuWithSender:" destination="tDx-yX-WbI" id="ZpL-uN-hGG"/>
+</connections>
+</barButtonItem>
+</navigationItem>
+<connections>
+<outlet property="tableView" destination="Odj-G0-XI2" id="xtN-Pl-LSF"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="qX5-jC-zFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="2377" y="1786"/>
+</scene>
+<!--Oceans View Controller-->
+<scene sceneID="fGo-5C-xpC">
+<objects>
+<viewController storyboardIdentifier="OceansViewController" id="DDp-Yz-nfr" customClass="OceansViewController" customModule="SlidingMenuNavigation" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="nfI-G5-TAi"/>
+<viewControllerLayoutGuide type="bottom" id="1CR-Lo-E2b"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="0gz-KC-7ef">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jmb-ox-mRN">
+<rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<prototypes>
+<tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OceanCell" textLabel="Bkc-Np-g2u" style="IBUITableViewCellStyleDefault" id="QbL-PQ-Obg">
+<rect key="frame" x="0.0" y="22" width="600" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+<tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QbL-PQ-Obg" id="hp2-AT-mJt">
+<rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+<autoresizingMask key="autoresizingMask"/>
+<subviews>
+<label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bkc-Np-g2u">
+<rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" type="system" pointSize="16"/>
+<color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+</tableViewCellContentView>
+</tableViewCell>
+</prototypes>
+<connections>
+<outlet property="dataSource" destination="DDp-Yz-nfr" id="kT8-2d-k9L"/>
+<outlet property="delegate" destination="DDp-Yz-nfr" id="R9x-11-jcO"/>
+</connections>
+</tableView>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</view>
+<navigationItem key="navigationItem" id="7sr-dk-cPJ">
+<barButtonItem key="leftBarButtonItem" title="Menu" id="95d-NY-hIC">
+<connections>
+<action selector="openMenuWithSender:" destination="DDp-Yz-nfr" id="c0S-kZ-krs"/>
+</connections>
+</barButtonItem>
+</navigationItem>
+<connections>
+<outlet property="tableView" destination="jmb-ox-mRN" id="I8G-9T-Sn2"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="ysL-Ls-aNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="3215" y="2431"/>
+</scene>
+</scenes>
 </document>
+

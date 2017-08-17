@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesViewControllerDelegate,ContinentsViewControllerDelegate,OceansViewControllerDelegate {
-
+class HomeViewController: UIViewController {
+    
     let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var sideBarNavigationController:SlidingMenuViewController?
     var countriesViewController:CountriesViewController?
@@ -23,17 +23,58 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
         super.viewDidLoad()
     }
     
-    func continentsViewControllerDidTapMenuButton(viewController: ContinentsViewController) {
-        self.sideBarNavigationController?.toggleMenu()
+    @IBAction func openNavigation(sender: AnyObject){
+        openSlidingNavigation()
     }
     
+    private func openSlidingNavigation(){
+        self.sideBarNavigationController = (mainStoryboard.instantiateViewController(withIdentifier: "SlidingMenuViewController") as! SlidingMenuViewController)
+        
+        self.countriesViewController = (mainStoryboard.instantiateViewController(withIdentifier: "CountriesViewController") as! CountriesViewController)
+        self.countriesViewController?.delegate = self
+        
+        self.continentsViewController = (mainStoryboard.instantiateViewController(withIdentifier: "ContinentsViewController") as! ContinentsViewController)
+        self.continentsViewController?.delegate = self
+        
+        self.oceansViewController = (mainStoryboard.instantiateViewController(withIdentifier: "OceansViewController") as! OceansViewController)
+        self.oceansViewController?.delegate = self
+        
+        self.menuViewController = (mainStoryboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController)
+        self.menuViewController?.delegate = self
+        
+        self.menuNav = UINavigationController(rootViewController: self.menuViewController!)
+        self.pageNavigationController = UINavigationController(rootViewController: self.continentsViewController!)
+        
+        self.sideBarNavigationController?.leftViewController = self.menuNav
+        self.sideBarNavigationController?.mainViewController = self.pageNavigationController
+        self.sideBarNavigationController?.offSet = 50
+        
+        self.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        self.present(self.sideBarNavigationController!, animated: false, completion: nil)
+    }
+    
+}
+
+extension HomeViewController:CountriesViewControllerDelegate {
     func countriesViewControllerDidTapMenuButton(viewController: CountriesViewController) {
         self.sideBarNavigationController?.toggleMenu()
     }
-    
+}
+
+extension HomeViewController:ContinentsViewControllerDelegate {
+    func continentsViewControllerDidTapMenuButton(viewController: ContinentsViewController) {
+        self.sideBarNavigationController?.toggleMenu()
+    }
+}
+
+extension HomeViewController:OceansViewControllerDelegate {
     func oceansViewControllerDidTapMenuButton(viewController: OceansViewController) {
         self.sideBarNavigationController?.toggleMenu()
     }
+}
+
+extension HomeViewController: MenuViewControllerDelegate {
     
     func menuViewControllerDidTapContinents(controller: MenuViewController) {
         self.sideBarNavigationController?.toggleMenu()
@@ -51,39 +92,8 @@ class HomeViewController: UIViewController,MenuViewControllerDelegate,CountriesV
     }
     
     func menuViewControllerDidClose(){
-        self.sideBarNavigationController?.dismissViewControllerAnimated(true, completion: nil)
+        self.sideBarNavigationController?.dismiss(animated: true, completion: nil)
     }
-    
-    func openSlidingNavigation(){
-        self.sideBarNavigationController = (mainStoryboard.instantiateViewControllerWithIdentifier("SlidingMenuViewController") as SlidingMenuViewController)
-        
-        self.countriesViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("CountriesViewController") as CountriesViewController)
-        self.countriesViewController?.delegate = self
-        
-        self.continentsViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("ContinentsViewController") as ContinentsViewController)
-        self.continentsViewController?.delegate = self
-        
-        self.oceansViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("OceansViewController") as OceansViewController)
-        self.oceansViewController?.delegate = self
-        
-        self.menuViewController = (mainStoryboard.instantiateViewControllerWithIdentifier("MenuViewController") as MenuViewController)
-        self.menuViewController?.delegate = self
-        
-        self.menuNav = UINavigationController(rootViewController: self.menuViewController!)
-        self.pageNavigationController = UINavigationController(rootViewController: self.continentsViewController!)
-        
-        self.sideBarNavigationController?.leftViewController = self.menuNav
-        self.sideBarNavigationController?.mainViewController = self.pageNavigationController
-        self.sideBarNavigationController?.offSet = 50
-        
-        self.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.presentViewController(self.sideBarNavigationController!, animated: false, completion: nil)
-    }
-    @IBAction func openNavigation(sender: AnyObject){
-     
-        openSlidingNavigation()
-    }
-
-
 }
+
+
